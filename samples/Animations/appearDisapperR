@@ -1,6 +1,6 @@
 
 #' @name    animate.visibility
-#' @title   Animate Visibility
+#' @title   Appear Dissappear
 #' @concepts  Set, Animation
 #' @family Animations
 #' @details

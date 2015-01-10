@@ -1,6 +1,6 @@
 
 #' @name    animate.fill
-#' @title   Animate Fill
+#' @title   Warning
 #' @concepts  Set, Animation
 #' @family Animations
 #' @details

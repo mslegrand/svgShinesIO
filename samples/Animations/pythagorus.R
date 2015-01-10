@@ -1,6 +1,6 @@
 
 #' @name    animate.pythagorus
-#' @title   Pythagorus
+#' @title   Pythagorus Proof
 #' @concepts  AnimateTransform
 #' @family Animations
 #' @details
