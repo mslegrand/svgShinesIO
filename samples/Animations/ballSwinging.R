@@ -30,7 +30,6 @@ fn<-function(){
   
   doc<-svgDoc.new(wh=2*cXY+c(0,R))
   doc[["root"]](
-    #cat("N=",N,"\n")
     rect(cxy=cXY, wh=c((1+N*2)*2*r, 2*r), 
          fill="grey",stroke="black"),
     lapply(indices, oneBall)
