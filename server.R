@@ -1,9 +1,8 @@
 
 library(shiny)
 library(svgR)
-
 source("sampleLoader.R")
-#source("./samples//samplesList.R")
+
 shinyServer(function(input,output, session){
 
   observe({
@@ -15,12 +14,6 @@ shinyServer(function(input,output, session){
                        choices = catFiles
     )    
   })
-  
-  output$radioButtons = renderUI({
-    nTabs = input$nTabs
-    myTabs = lapply(paste('Tab', 1: nTabs), tabPanel)
-    do.call(tabsetPanel, myTabs)
-  }) 
   
   fileInfo <- reactive({ 
     fileName<-input$inRadio
