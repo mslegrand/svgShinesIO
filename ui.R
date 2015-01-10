@@ -11,19 +11,13 @@ library(stringr)
 
 catChoice<-dir("samples")
 
-
-categoryPanel<-selectInput("exCat", "SVG Example Category:", catChoice,
-                               selected="svglogos")
-
-
 shinyUI(pageWithSidebar(
   headerPanel("SVG Shines"),
   sidebarPanel(
-    categoryPanel,
+    selectInput("exCat", "SVG Example Category:", catChoice),
     radioButtons( inputId= "inRadio", # ie. choice1
                   label="Choose:", # change to choose Shape...
-                  choices=as.list(letters[1:4]),
-                  selected=letters[1] #to fix later!!
+                  choices=readCatFiles(catChoice[1])
     ),
     wellPanel(
       h3("Description"),
