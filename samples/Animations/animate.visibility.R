@@ -1,0 +1,28 @@
+
+#' @name    animate.visibility
+#' @title   Animate Visibility
+#' @concepts  Set, Animation
+#' @family Animations
+#' @details
+#' @description Blinking circles
+#' 
+fn<-function(){
+doc<-svgDoc.new()
+makeCircle<-function(i){
+  times<-runif(3,0,1)
+  circle( cxy=runif(2,1,200), r=runif(1,5,30), visibility="visible",
+    fill=paste0("rgb(", paste(sample(40:255,3),collapse=","), ")"),
+    set(id=paste0("c2x",i), attributeName="visibility", 
+      to="hidden", begin=paste0(times[1],"; c1x",i,".end"),dur=times[2]
+    ),          
+    set(id=paste0("c1x",i), attributeName="visibility", 
+      from="hidden", to="visible", 
+      begin=paste0("c2x",i,".end"), dur=times[3] 
+    )
+  )
+}
+doc[["root"]](
+  lapply(1:20, makeCircle)
+)
+as.character(doc)
+}

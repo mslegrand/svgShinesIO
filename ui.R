@@ -1,0 +1,95 @@
+
+# This is the user-interface definition of a Shiny web application.
+# You can find out more about building applications with Shiny here:
+# 
+# http://www.rstudio.com/shiny/
+#
+
+library(shiny)
+library(svgR)
+library(stringr)
+
+catChoice<-dir("samples")
+
+#source("ExtractSamples.R")
+
+categoryPanel<-selectInput("exCat", "SVG Example Category:", catChoice,
+                               selected="svglogos")
+
+
+#This creates all file choice panels at once! Not what I wanted
+# examplePanels<-lapply( catChoice , 
+#   function(xcc){ 
+#     conditionalPanel( 
+#       condition=paste("input.exCat == '",xcc,"'",sep=""),
+#       radioButtons( inputId= paste("rdc",xcc,sep="_"), # ie. choice1
+#                     label="Choose:", # change to choose Shape...
+#                     choices=exChoice[[xcc]],
+#                     selected=exChoice[[xcc]][1] #to fix later!!
+#       )
+#   `) 
+#   }
+# )
+
+
+shinyUI(pageWithSidebar(
+  headerPanel("SVG Shines"),
+  sidebarPanel(
+    categoryPanel,
+    radioButtons( inputId= "inRadio", # ie. choice1
+                  label="Choose:", # change to choose Shape...
+                  choices=as.list(letters[1:4]),
+                  selected=letters[1] #to fix later!!
+    ),
+    wellPanel(
+      h3("Description"),
+      h6(textOutput("description")),
+      h5( "Concepts: "), 
+      h6(textOutput("concepts")) #,
+      #help("These examples are generated directly using a small wrapper to the XML package.")
+    )
+    #downloadButton('dldat', 'Download Sample') Do we want to allow download???
+    #what about upload???
+  ),
+  mainPanel(
+    h3("Tested on Firefox, Safari, Chromium, and Google Chrome"),
+    tabsetPanel(
+      tabPanel("SVG Image",              
+               htmlOutput("svghtml") 
+               ),
+      tabPanel("R Source Code",
+               verbatimTextOutput("rSource")
+      ),
+      tabPanel("Generated SVG",
+               verbatimTextOutput("raw")
+               ),
+      tabPanel("About",
+        h2("About"),
+        p("This work is based upon",
+        strong(em("svgR")) , 
+          "which is an experimental R package available on",
+        a("github.", href='https://github.com/mslegrand/svgR'),
+          "This app,",
+        strong(em("shinySVG,")),
+        "is also available on",
+        a("github.", href='https://github.com/mslegrand/shinySVG')
+        ),
+        p("The implementation of svgR uses Duncan Lang's ",
+          a("R XML package.", href="http://www.omegahat.org/RSXML/"),
+          "available on",
+          a("CRAN", href="http://cran.r-project.org/"),
+          "The SVG specifications were obtained from",
+          a("W3C.", href="http://www.w3.org/TR/SVG/Overview.html"),
+          "but are also available in a more readable form at ",
+          a("MDN.", href="https://developer.mozilla.org/en-US/docs/Web/SVG"),
+          "The design of the svgR 
+          package is inspired  by",
+          a( "Hadely Wickham's DSL tutorial", href="http://adv-r.had.co.nz/dsl.html")
+          ),
+        p(),
+        p(strong('Final Note:'), 
+          'This is effort is still in flux and subject to change')
+      )
+    )
+  )
+))
