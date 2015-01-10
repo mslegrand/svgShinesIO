@@ -11,25 +11,9 @@ library(stringr)
 
 catChoice<-dir("samples")
 
-#source("ExtractSamples.R")
 
 categoryPanel<-selectInput("exCat", "SVG Example Category:", catChoice,
                                selected="svglogos")
-
-
-#This creates all file choice panels at once! Not what I wanted
-# examplePanels<-lapply( catChoice , 
-#   function(xcc){ 
-#     conditionalPanel( 
-#       condition=paste("input.exCat == '",xcc,"'",sep=""),
-#       radioButtons( inputId= paste("rdc",xcc,sep="_"), # ie. choice1
-#                     label="Choose:", # change to choose Shape...
-#                     choices=exChoice[[xcc]],
-#                     selected=exChoice[[xcc]][1] #to fix later!!
-#       )
-#   `) 
-#   }
-# )
 
 
 shinyUI(pageWithSidebar(
@@ -45,11 +29,8 @@ shinyUI(pageWithSidebar(
       h3("Description"),
       h6(textOutput("description")),
       h5( "Concepts: "), 
-      h6(textOutput("concepts")) #,
-      #help("These examples are generated directly using a small wrapper to the XML package.")
+      h6(textOutput("concepts"))
     )
-    #downloadButton('dldat', 'Download Sample') Do we want to allow download???
-    #what about upload???
   ),
   mainPanel(
     h3("Tested on Firefox, Safari, Chromium, and Google Chrome"),

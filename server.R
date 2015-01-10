@@ -7,13 +7,9 @@ source("sampleLoader.R")
 shinyServer(function(input,output, session){
 
   observe({
-    # We'll use the input$controller variable multiple times, so save it as x
-    # for convenience.
     the.category <- input$exCat
     # read in the list of choices
-    catFiles<-readCatFiles(the.category) 
-    
-    # Change values for input$inRadio
+    catFiles<-readCatFiles(the.category)     
     updateRadioButtons(session, "inRadio", 
                        label="Choose sample",
                        choices = catFiles
@@ -39,7 +35,7 @@ shinyServer(function(input,output, session){
      HTML(fn())
    })
 #   
-  output$rSource <-renderText({ #todo, read from file, so comments can be shown.
+  output$rSource <-renderText({ 
     fileInfo()$src
   }) 
 # 
