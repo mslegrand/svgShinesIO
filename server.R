@@ -1,7 +1,6 @@
 
 library(shiny)
 library(svgR)
-source("sampleLoader.R")
 
 shinyServer(function(input,output, session){
 
