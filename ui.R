@@ -10,6 +10,7 @@ library(svgR)
 library(stringr)
 source("sampleLoader.R")
 
+
 catChoice<-dir("samples")
 
 shinyUI(pageWithSidebar(
