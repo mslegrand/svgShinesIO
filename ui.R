@@ -47,9 +47,9 @@ shinyUI(pageWithSidebar(
           "which is an experimental R package available on",
         a("github.", href='https://github.com/mslegrand/svgR'),
           "This app,",
-        strong(em("shinySVG,")),
+        strong(em("svgShinesIO,")),
         "is also available on",
-        a("github.", href='https://github.com/mslegrand/shinySVG')
+        a("github.", href='https://github.com/mslegrand/svgShinesIO')
         ),
         p("The implementation of svgR uses Duncan Lang's ",
           a("R XML package.", href="http://www.omegahat.org/RSXML/"),
