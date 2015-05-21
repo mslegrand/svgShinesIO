@@ -7,12 +7,11 @@
 #' @description Another animation
 #' 
 fn<-function(){ 
-doc<-svgDoc.new()
 s.colors<-c("red","blue","yellow","green")
 s.offset<-0.25*c(0,1,3,4)
 idr<-paste0("ro",1:4)
 vals<-c("#ffff80", "#ff8080", "#ff80ff", "#8080ff", "#80ffff", "#80ff80")
-doc[['root']](
+svgR(
   defs( linearGradient(id='rhue', colors=c('red','blue','yellow','green'))),  
   ellipse( cxy=c(290,250), rxy=c(80,80),
     animate( attributeName='fill', dur=5, 
@@ -36,5 +35,4 @@ doc[['root']](
     use(xlink.href='#penta', transform=list(rotate=c(i*72,290,250))) 
   )                           
 )
-as.character(doc)
 }

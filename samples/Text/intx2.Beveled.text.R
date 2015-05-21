@@ -9,8 +9,8 @@ fn<-function(){
 center<-c(145,10)
 wh<-c(290,250) #dimensions of rectangle
 integral<-mathSymbol("\\int")
-doc<-svgDoc.new(width="12cm", height="12cm", viewBox="0 0 600 300", version=1.1)
-doc[['root']](
+svgR(
+  width="12cm", height="12cm", viewBox="0 0 600 300", version=1.1,
   defs(
     filter( id='emboss',
       feGaussianBlur(in1='SourceAlpha', stdDeviation=2, result='blur'),
@@ -63,5 +63,4 @@ doc[['root']](
     stroke="black", fill="rgb(224,224,255)", filter="url(#bevel-shadow)"
   )
 )
-as.character(doc)  
 }

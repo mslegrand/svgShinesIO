@@ -28,8 +28,7 @@ fn<-function(){
   values1<-paste(theta,xx[1],cXY[2],sep=",",collapse="; ")
   values2<-paste(-theta,xx[2],cXY[2],sep=",",collapse="; ")
   
-  doc<-svgDoc.new(wh=2*cXY+c(0,R))
-  doc[["root"]](
+  doc<-svgR( wh=2*cXY+c(0,R),
     rect(cxy=cXY, wh=c((1+N*2)*2*r, 2*r), 
          fill="grey",stroke="black"),
     lapply(indices, oneBall)
@@ -58,5 +57,5 @@ fn<-function(){
                       begin="R.end"
     )         
   )
-  as.character(doc)
+  doc
 }

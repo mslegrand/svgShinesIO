@@ -7,17 +7,12 @@
 #' @description Random circles.
 #' 
 fn<-function(){
-rndColor<-function(){
-  paste0("rgb(",paste(sample.int(255,3),collapse=","),")")
-}
-doc<-svgDoc.new(wh=c(200,200))
-doc[["root"]]( 
+svgR( wh=c(200,200),
   lapply(1:10, function(i){
       circle(id="circle.my", cxy=sample.int(200,2), r=sample.int(30,1), 
-        stroke=rndColor(), opacity=.8,  fill=rndColor() 
+        stroke=rrgb(), opacity=.8,  fill=rrgb() 
       )
     } 
   )
 )
-as.character(doc)
 }

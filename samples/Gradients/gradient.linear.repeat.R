@@ -7,8 +7,7 @@
 #' @description Illustrates text filled with a radial gradient
 #' 
 fn<-function(){
-doc<-svgDoc.new(width=450, height=300)
-doc[["root"]](
+svgR(wh=c(450,300),
     defs(
       linearGradient(id="my.grad",
         xy1=c(.1,.0), xy2=c(.1,.3),             
@@ -25,5 +24,4 @@ doc[["root"]](
           
     )
 )
-  as.character(doc)
 }

@@ -7,7 +7,6 @@
 #' @description Pacman takes 3 bites
 #'  
 fn<-function(doc){
-  doc<-svgDoc.new()
   cxy<-c(120, 120)
   r<-50
   dt<-.3
@@ -26,7 +25,7 @@ fn<-function(doc){
     L=c(r*cos(angle), r*sin(angle)), 
     A=c(r,r,0, 1,1, (r+30)*cos(angle), -r*sin(angle) ),
     Z=0)
-  doc[["root"]]( 
+  svgR( 
     g( transform=list(translate=cxy-c(r,r) ),
        g(id="balls", 
          lapply(1:6, function(i) 
@@ -49,6 +48,4 @@ fn<-function(doc){
               fill="#000", stroke="white", stroke.width=eye$stroke)                        
     ) 
   )
-  as.character(doc)->tmp
-  tmp
 }

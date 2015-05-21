@@ -5,9 +5,8 @@
 #' @concepts  Text,  Filters,
 #' @details
 #' @description Demonstrates the use of filters to produce a marble effect
-fn<-function(){
-doc<-svgDoc.new(wh=c(600,200))  
-doc[["root"]](
+fn<-function(){  
+svgR(wh=c(600,200),
   defs(
     filter( id="marble",
       feTurbulence( in1="SourceGraphic", type="turbulence", 
@@ -36,6 +35,5 @@ doc[["root"]](
     ),
     use(xlink.href="#t2", fill="none")
   )
-) 
-as.character(doc)  
+)  
 }
