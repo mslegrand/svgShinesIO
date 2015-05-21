@@ -27,7 +27,7 @@ shinyServer(function(input,output, session){
 output$svghtml<-renderUI({
   src<-fileInfo()$src
   svgFn<-eval(parse(text=src))
-  svgFn()->svg
+  as.character(svgFn())->svg
   if(baseTag==TRUE){
     # VERY UGLY KLUDGE for shinyapps.io server
     #  reason is the set the base tag and relative links 

@@ -7,8 +7,7 @@
 #' @description Two triangles: top has points given as a list, the bottom has points given as a matrix
 #' 
 fn<-function(){
-doc<-svgDoc.new()
-doc[["root"]](
+svgR(
   polygon(id="poly.list", 
     points=list(c(50,50)+10,  c(0,100)+10, c(100,100)+10),
     fill="lime", stroke="red", stroke.width=10
@@ -18,5 +17,4 @@ doc[["root"]](
     fill="yellow", stroke="blue",stroke.width=10
   )
 )
-as.character(doc)
 }

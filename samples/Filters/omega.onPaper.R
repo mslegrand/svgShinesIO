@@ -6,8 +6,7 @@
 #' @details
 #' @description Demonstrates the use of filters to produce a paper background effect
 fn<-function(){
-doc<-svgDoc.new(wh=c(500,200))  
-doc[["root"]](
+svgR(wh=c(500,200),  
   defs(
     filter( id="roughpaper",
       feTurbulence( in1="SourceGraphic", type="fractalNoise", 
@@ -26,5 +25,4 @@ doc[["root"]](
     font.weight="bold", fill="white", opacity=0.4
   )     
 )  
-as.character(doc)  
 }

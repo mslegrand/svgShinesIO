@@ -7,7 +7,5 @@
 #' @description A blue filled rectangle
 #' 
 fn<-function(){
-doc<-svgDoc.new()
-doc[["root"]]( rect(id="rect.my", cxy=c(100, 100), wh=c(100, 100),  fill="blue"))
-as.character(doc)
+svgR(  rect(id="rect.my", cxy=c(100, 100), wh=c(100, 100),  fill="blue"))
 }

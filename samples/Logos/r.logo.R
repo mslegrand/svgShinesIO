@@ -7,10 +7,10 @@
 #' @description Illustrates the use of multiple filters 
 #' 
 fn<-function(){
-  doc<-svgDoc.new(width="12cm", height="12cm", viewBox="0 0 500 300", version=1.1)
   center<-c(200,10)
   cp<-function(x,y){ paste(c(x,y),"%", sep="")}
-  doc[['root']](
+  svgR(
+    width="12cm", height="12cm", viewBox="0 0 500 300", 
     defs(
       filter(
         id="distLight", 
@@ -106,5 +106,4 @@ fn<-function(){
          filter="url(#distLight2)"
     )
   )
-  as.character(doc) 
 }

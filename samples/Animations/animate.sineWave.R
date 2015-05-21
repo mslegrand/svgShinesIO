@@ -18,8 +18,7 @@ y<-r-r*sin( P*(0:(N))*(2*pi)/N )
 points<-rbind(x,y)
 ceiling(sum(sqrt(diff(x)*diff(x)+diff(y)*diff(y))))->path.len
 spath<-structure(lapply(1:N, function(i)c(x[i],y[i])),names=c("M",rep("L",N-1)))
-doc<-svgDoc.new( width=w+2, height=h+2)
-doc[["root"]](
+svgR( wh=c(w,h)+2,
   rect(id="greenR", xy=c(-w,0), wh=c(w,h), 
     stroke="red", fill="lightgreen", opacity=.5,
     animate(attributeName="x", values=x-w, 
@@ -65,5 +64,4 @@ doc[["root"]](
     )
   )
 )
-as.character(doc)
 }

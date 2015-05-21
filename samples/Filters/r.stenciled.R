@@ -6,9 +6,9 @@
 #' @details
 #' @description Demonstrates the use of filters to produce a stencil effect
 fn<-function(){ 
-doc<-svgDoc.new(width="12cm", height="12cm", viewBox="0 0 500 300", version=1.1)
 center<-c(100,10)
-doc[['root']](
+svgR(
+  width="12cm", height="12cm", viewBox="0 0 500 300", version=1.1,
   defs(
     filter( id='emboss',
       feGaussianBlur(  in1='SourceAlpha', stdDeviation=2, result='blur'),
@@ -57,5 +57,4 @@ doc[['root']](
        stroke="black", fill="rgb(224,224,255)", filter="url(#bevel-shadow)"
   )    
 )
-as.character(doc)  
 }

@@ -7,11 +7,11 @@
 #' @description Illustrates the use of gradients and filters 
 #' 
 fn<-function(){  
-  doc<-svgDoc.new(width="12cm", height="12cm", viewBox="0 0 500 500", version=1.1)  
   center<-c(200,200)
   radius<-120
   
-  doc[['root']](
+  svgR(
+    width="12cm", height="12cm", viewBox="0 0 500 500", version=1.1,
     defs(
       filter(       id='embossWithShadow',
                     feGaussianBlur(  in1='SourceAlpha', stdDeviation=2, result='blur'),
@@ -39,6 +39,5 @@ fn<-function(){
       use( "xlink:href"="#google", filter='url(#embossWithShadow)') #now emboss the letters
     )
   )
-  as.character(doc)  
 }
 

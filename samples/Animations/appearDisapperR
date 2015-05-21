@@ -7,7 +7,6 @@
 #' @description Blinking circles
 #' 
 fn<-function(){
-doc<-svgDoc.new()
 makeCircle<-function(i){
   times<-runif(3,0,1)
   circle( cxy=runif(2,1,200), r=runif(1,5,30), visibility="visible",
@@ -21,8 +20,7 @@ makeCircle<-function(i){
     )
   )
 }
-doc[["root"]](
+svgR(
   lapply(1:20, makeCircle)
 )
-as.character(doc)
 }

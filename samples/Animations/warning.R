@@ -8,8 +8,7 @@
 #' 
 fn<-function(){
 dt=0.1
-doc<-svgDoc.new()
-doc[["root"]](
+svgR(
   circle(id="circle.my", cxy=c(100,100), r=50, fill="yellow",
     set(id="Yellow", 
       attributeName="fill", to="yellow", 
@@ -30,5 +29,4 @@ doc[["root"]](
     )          
   ) 
 )
-as.character(doc)
 }

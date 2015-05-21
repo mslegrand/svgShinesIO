@@ -90,8 +90,7 @@ fn<-function(){
   g2Decor<-decorate(gear=g2, N=5)
   
   wheelColor<-"rgb(168,128,64)"
-  doc<-svgDoc.new(width=400, height=300)
-  doc[["root"]](
+  svgR( wh=c(400,300),
     g( id="gear1",
        path( d=g1$pathD, fill=wheelColor,
              stroke="black",
@@ -157,5 +156,4 @@ fn<-function(){
     )
     
   )
-  as.character(doc)
 }

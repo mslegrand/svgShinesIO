@@ -20,10 +20,9 @@ fn<-function(){
   eta<- -2*pi/3 + d.eta*c(-1,1)
   cxy<-cXY + S*c(cos(pi/3),sin(pi/3)) #center of satellite
   xy1<-cxy + t(r[2]*cbind(cos(eta), sin(eta)))
-  
-  
-  doc<-svgDoc.new(width="12cm", height="12cm", viewBox="0 0 500 500", version=1.1)    
-  doc[['root']](
+    
+  svgR(
+    width="12cm", height="12cm", viewBox="0 0 500 500", 
     defs(
       filter(       id='filterShadow', height='150%',
                     feGaussianBlur( in1='SourceAlpha', stdDeviation=6, result='image1'  ),
@@ -66,5 +65,4 @@ fn<-function(){
     use( "xlink:href"="#ubuntu",  filter='url(#filterShadow)'),
     use( "xlink:href"="#ubuntu",  filter='url(#emboss)')
   )
-  as.character(doc)  
 }

@@ -7,8 +7,7 @@
 #' @description Illustrates text filled with a linear gradient
 #' 
 fn<-function(){
-doc<-svgDoc.new(width=450, height=300)
-doc[["root"]](
+svgR(wh=c(450, 300),
   defs( 
     linearGradient(id="my.grad",
       xy1=c(0,.4), xy2=c(0,.9), 
@@ -20,5 +19,4 @@ doc[["root"]](
     fill= "url( #my.grad )", stroke="blue"    
   )
 )
-as.character(doc)
 }

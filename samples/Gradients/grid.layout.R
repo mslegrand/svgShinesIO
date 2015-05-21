@@ -7,11 +7,10 @@
 #' @description Shows how to contruct a grid using lapply
 #' 
 fn<-function(){
-doc<-svgDoc.new()
 nx=20; ny=20
 wh<-c(450,300)
 w<-wh[1]; h<-wh[2]
-doc[["root"]](
+svgR(
   defs( 
     linearGradient(id="my.grad",xy1=c("0%","0%"), xy2=c("0%","100%"), 
       colors=c( "rgb(196,196,255)", "rgb(10,10,96)" ) 
@@ -29,5 +28,4 @@ doc[["root"]](
   )
   )     
 ) 
-as.character(doc)
 }  

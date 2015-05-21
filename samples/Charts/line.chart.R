@@ -116,10 +116,9 @@ fn=function(){
   female.pts<-cbind(x,y)
   
   #graph it
-  doc<-svgDoc.new(width=500,height=300 )
+  doc<-svgR(wh=c(500,300))
   addLayout(doc, layout)
   addCurve(doc, layout, male.pts, "blue", "lightblue")
-  addCurve(doc, layout, female.pts, "red", "pink")
-  
-  as.character(doc)
+  addCurve(doc, layout, female.pts, "red", "pink")  
+  doc
 }

@@ -24,8 +24,7 @@ midptAngles<-0.5*(angles[1:N]+angles[2:(N+1)])
 textPos<-0.75*radius*cbind(cos(midptAngles),sin(midptAngles))
 midpoints<-(OD-1)*radius*cbind(cos(midptAngles),sin(midptAngles))
 
-doc<-svgDoc.new()
-doc[['root']](
+svgR(
   text('Click on pie chart to activate', xy=c(20,20)),
   g( transform=list(translate=center),
     lapply(1:N, 
@@ -84,5 +83,4 @@ doc[['root']](
     )
   )
 )
-as.character(doc)
 }

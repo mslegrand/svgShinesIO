@@ -7,14 +7,10 @@
 #' @description Simple flower.
 #' 
 fn<-function(){
-rndColor<-function(){
-  paste0("rgb(",paste(sample.int(255,3),collapse=","),")")
-}
 rotate<-function(v){paste0("rotate(",paste(v,collapse=","),")")}
 wh<-c(200,200)
-doc<-svgDoc.new(wh=wh)
 middle<-wh/2
-doc[["root"]](   
+svgR(wh=wh,
   defs(
     ellipse(id='ellipse', cxy=middle+c(20,-5), 
       rxy=c(20,10), stroke="black", opacity=.8 
@@ -22,10 +18,9 @@ doc[["root"]](
   ),
   lapply(1:10, 
     function(i)
-      use(xlink.href="#ellipse",  fill=rndColor(),
+      use(xlink.href="#ellipse",  fill=rrgb(),
         transform = rotate(c(36*i, middle) )
       )
   )
 )
-as.character(doc)
 }

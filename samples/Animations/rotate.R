@@ -7,8 +7,7 @@
 #' @description  Rectangle spinning indefinately
 #' 
 fn<-function(){
-  doc<-svgDoc.new()
-  doc[["root"]](
+  svgR(
     g(rect( xy=c(150,20), wh=c(60,60), fill="blue"),
       animateTransform(
         attributeType="xml", 
@@ -17,5 +16,4 @@ fn<-function(){
         dur=4, repeatCount="indefinite")
     )              
   )
-  as.character(doc)
 }

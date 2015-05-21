@@ -7,11 +7,11 @@
 #' @description Illustrates the use of gradients and filters 
 #' 
 fn<-function(){
-doc<-svgDoc.new(width="12cm", height="12cm", viewBox="0 0 500 500", version=1.1)  
 center<-c(200,200)
 radius<-120
  
-doc[['root']](
+svgR(
+  width="12cm", height="12cm", viewBox="0 0 500 500", version=1.1,
   defs( 
     radialGradient(id="grad1",
       cxy=c("50%","80%"),
@@ -41,5 +41,4 @@ doc[['root']](
   text("R", font.size=144,  font.family = "serif",
   cxy=center, fill="white")
 )
-as.character(doc)
 }

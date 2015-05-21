@@ -11,9 +11,8 @@ fn<-function(){
   top<-50
   bottom<-150
   xs<-(1:N)*60  
-  doc<-svgDoc.new(wh=c(600,200)) 
   colors<-c('lightgreen','orange','khaki','lightblue','pink','yellow', 'red')
-  doc[["root"]](
+  svgR(wh=c(600,200),
     lapply(1:(N-1), function(i){
       line(xy1=c(xs[i],top), xy2=c(xs[i],bottom), stroke="blue",
            stroke.width=5,
@@ -51,6 +50,5 @@ fn<-function(){
              cxy=c(xs[i], bottom), r=10, fill=colors[i], 
              stroke="black", stroke.width=4)}
     )
-  ) 
-  as.character(doc)  
+  )  
 }
