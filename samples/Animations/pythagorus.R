@@ -34,7 +34,7 @@ fn<-function(){
     )      
   }
   
-  doc<-svgR()
+  doc<-svgR(wh=c(600,300))
   doc[['root']](
     g(id = "textArea",  transform=list(translate=(center*c(0.8,0.3)))),
     g(id = "graphArea", transform=list(translate=center),

@@ -90,7 +90,7 @@ fn=function(){
   }
   
   # Here we declare all objects to be animated
-  doc<-svgR()
+  doc<-svgR(wh=c(800,400))
   doc[['root']](
     g(id = "textArea1",  transform=list(translate=begTxt)),
     g(id = "textArea2",  transform=list(translate=begTxt+c(0,15))),
